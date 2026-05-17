@@ -44,7 +44,7 @@ textarea.input-field{resize:vertical;min-height:40px}
 .toast-error{background:linear-gradient(135deg,#7f1d1d,#991b1b);color:white;border:1px solid #ef4444}
 @keyframes si{from{transform:translateX(120%);opacity:0}to{transform:translateX(0);opacity:1}}
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.7);backdrop-filter:blur(4px);z-index:100;display:flex;align-items:center;justify-content:center;padding:16px}
-.modal-content{background:#182538;border:1px solid #2a3f5f;border-radius:16px;padding:32px;max-width:700px;width:100%;animation:fi .3s ease;max-height:90vh;overflow-y:auto}
+.modal-content{background:#182538;border:1px solid #2a3f5f;border-radius:16px;padding:32px;max-width:750px;width:100%;animation:fi .3s ease;max-height:90vh;overflow-y:auto}
 .sidebar-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:35;display:none}
 .sidebar-overlay.active{display:block}
 @media(max-width:1023px){.sidebar{transform:translateX(-260px)}.sidebar.mobile-open{transform:translateX(0)}.main-content{margin-left:0!important}}
@@ -59,7 +59,6 @@ textarea.input-field{resize:vertical;min-height:40px}
 .filter-bar{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;padding:14px 16px;background:rgba(15,25,35,0.4);border:1px solid #2a3f5f;border-radius:10px;margin-bottom:16px}
 .img-preview{max-width:100%;max-height:80px;object-fit:contain;border-radius:4px;margin-top:4px;border:1px solid #2a3f5f}
 
-/* ========== WYSIWYG EDITOR ========== */
 .editor-wrapper{border:1px solid #2a3f5f;border-radius:8px;overflow:hidden;background:#0f1923}
 .editor-toolbar{display:flex;flex-wrap:wrap;gap:2px;padding:6px 8px;background:#111b2a;border-bottom:1px solid #2a3f5f;align-items:center}
 .editor-toolbar button{background:rgba(255,255,255,0.05);border:1px solid transparent;color:#7a8ba5;width:30px;height:30px;display:flex;align-items:center;justify-content:center;border-radius:4px;cursor:pointer;font-size:12px;transition:all .15s}
@@ -67,10 +66,9 @@ textarea.input-field{resize:vertical;min-height:40px}
 .editor-toolbar select{background:#0f1923;border:1px solid #2a3f5f;color:#e8ecf1;padding:2px 4px;border-radius:4px;font-size:11px;cursor:pointer;height:28px}
 .editor-toolbar .separator{width:1px;height:20px;background:#2a3f5f;margin:0 4px}
 .editor-content{min-height:80px;padding:10px 12px;color:#e8ecf1;font-size:14px;line-height:1.5;outline:none;overflow-y:auto;max-height:200px}
-.editor-content:focus{box-shadow: inset 0 0 0 1px rgba(239,68,68,0.2)}
+.editor-content:focus{box-shadow:inset 0 0 0 1px rgba(239,68,68,0.2)}
 .editor-content img{max-width:100%;height:auto}
 
-/* ========== STYLE PREVIEW CETAK ========== */
 .print-preview-sheet{font-family:'Times New Roman',serif;font-size:14pt;line-height:1.5;color:#000;background:#fff}
 .print-preview-sheet .kop-area{display:flex;align-items:center;gap:14px;padding-bottom:10px;border-bottom:3px solid #000;margin-bottom:4px}
 .print-preview-sheet .kop-logo{height:80px;width:auto;flex-shrink:0;object-fit:contain}
@@ -86,19 +84,11 @@ textarea.input-field{resize:vertical;min-height:40px}
 .print-preview-sheet .opt-img{max-height:40px;max-width:70px;object-fit:contain;vertical-align:middle;margin-left:8px;display:inline-block;border-radius:2px}
 .print-preview-sheet .section-title{border-bottom:2px solid #000;padding-bottom:4px;margin-bottom:12px;font-size:14pt;font-weight:bold}
 .print-preview-sheet .soal-block{margin-bottom:14px;page-break-inside:avoid}
-.print-preview-sheet .ar-sunda-text{font-size:18pt; line-height:1.8;}
-
-/* Paksa Font 14pt di dalam soal cetak agar seragam */
-.print-preview-sheet .soal-block, .print-preview-sheet .soal-block div, .print-preview-sheet .soal-block span, .print-preview-sheet .soal-block p {
-    font-family: 'Times New Roman', serif !important;
-    font-size: 14pt !important;
-    line-height: 1.5 !important;
-}
-
-/* Style Khusus Urutan / Menjodohkan di Cetak */
-.urut-row{display:flex; align-items:flex-start; margin-bottom:6px;}
-.urut-num-box{border:1.5px solid #000; width:24px; height:24px; min-width:24px; display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:11pt; margin-right:8px; border-radius:2px;}
-.urut-text{flex:1; font-size:14pt; line-height:1.5; padding-top:1px;}
+.print-preview-sheet .ar-sunda-text{font-size:18pt;line-height:1.8}
+.print-preview-sheet .soal-block,.print-preview-sheet .soal-block div,.print-preview-sheet .soal-block span,.print-preview-sheet .soal-block p{font-family:'Times New Roman',serif!important;font-size:14pt!important;line-height:1.5!important}
+.urut-row{display:flex;align-items:flex-start;margin-bottom:6px}
+.urut-num-box{border:1.5px solid #000;width:24px;height:24px;min-width:24px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:11pt;margin-right:8px;border-radius:2px}
+.urut-text{flex:1;font-size:14pt;line-height:1.5;padding-top:1px}
 </style>
 </head>
 <body>
@@ -215,6 +205,7 @@ function openModal(html){document.getElementById('modalOverlay').classList.remov
 function toggleSidebar(){var s=document.getElementById('sidebar'),o=document.getElementById('sidebarOverlay');s.classList.toggle('mobile-open');o.classList.toggle('active',s.classList.contains('mobile-open'));}
 function closeSidebar(){document.getElementById('sidebar').classList.remove('mobile-open');document.getElementById('sidebarOverlay').classList.remove('active');}
 function makeMapelOpt(sel){var h='<option value="">-- Semua Mapel --</option>';MAPEL_LIST.forEach(function(m){h+='<option value="'+m.id+'"'+(m.id===sel?' selected':'')+'>'+m.nama+'</option>';});return h;}
+function makeMapelOptEdit(sel){var h='<option value="">-- Pilih Mapel --</option>';MAPEL_LIST.forEach(function(m){h+='<option value="'+m.id+'"'+(m.id===sel?' selected':'')+'>'+m.nama+'</option>';});return h;}
 function switchAuthTab(tab){document.getElementById('tabReg').className='auth-tab'+(tab==='register'?' active':'');document.getElementById('tabLog').className='auth-tab'+(tab==='login'?' active':'');document.getElementById('panelRegister').classList.toggle('hidden',tab!=='register');document.getElementById('panelLogin').classList.toggle('hidden',tab!=='login');}
 
 function initApp(){unsubKec=dbSAT.collection('kecamatan').orderBy('createdAt','asc').onSnapshot(function(s){kecamatanList=s.docs.map(function(d){return Object.assign({id:d.id},d.data());});populateLoginDropdown();});}
@@ -263,16 +254,27 @@ function editTP(id){var t=tujuanPembelajaran.find(function(x){return x.id===id})
 function updateTP(id){var t=document.getElementById('mTPTextEdit').value.trim();if(!t){showToast('TP kosong','error');return;}dbPAJ.collection('tps_paj').doc(id).update({text:t}).then(function(){showToast('TP diperbarui!');closeModal();}).catch(function(){showToast('Gagal','error');});}
 function deleteTP(id){if(!confirm('Hapus TP?'))return;dbPAJ.collection('tps_paj').doc(id).delete().then(function(){showToast('TP dihapus');}).catch(function(){showToast('Gagal','error');});}
 
-/* [FIX] Fungsi untuk mengisi Dropdown TP di halaman Buat Soal */
+/* Fungsi untuk mengisi Dropdown TP */
+function getTPsByMapel(mapelId){return getTPs().filter(function(t){return t.mapel===mapelId;});}
+function buildTPSelectOptions(mapelId, selectedVal){
+    var list=getTPsByMapel(mapelId);
+    var h='<option value="">-- Pilih TP --</option>';
+    list.forEach(function(t){var sh=t.text.length>80?t.text.substring(0,80)+'...':t.text;var sel=t.text===selectedVal?' selected':'';h+='<option value="'+escAttr(t.text)+'"'+sel+'>'+escHtml(sh)+'</option>';});
+    return h;
+}
 function updateCreateTPDropdown(){
     var m=document.getElementById('cMapel');if(!m)return;var mv=m.value;if(!mv)return;
-    var r=getTPs().filter(function(t){return t.mapel===mv;});var s=document.getElementById('cTPSelect');if(!s)return;
-    s.innerHTML='<option value="">-- Pilih TP --</option>';
-    r.forEach(function(t){var sh=t.text.length>80?t.text.substring(0,80)+'...':t.text;s.innerHTML+='<option value="'+escHtml(t.text)+'">'+escHtml(sh)+'</option>';});
+    var s=document.getElementById('cTPSelect');if(!s)return;
+    s.innerHTML=buildTPSelectOptions(mv,'');
 }
-function updateTPDropdown(){updateCreateTPDropdown();}
+function updateEditTPDropdown(){
+    var m=document.getElementById('eMapel');if(!m)return;var mv=m.value;if(!mv)return;
+    var s=document.getElementById('eTPSelect');if(!s)return;
+    var curVal=s.dataset.current||'';
+    s.innerHTML=buildTPSelectOptions(mv,curVal);
+}
 
-/* ==================== BUAT SOAL PAJ (WYSIWYG + URUTAN) ==================== */
+/* ==================== WYSIWYG EDITOR HELPER ==================== */
 function buildWysiwyg(id) {
     return '<div class="editor-wrapper">' +
         '<div class="editor-toolbar">' +
@@ -287,51 +289,40 @@ function buildWysiwyg(id) {
 }
 function execCmd(command, value) { document.execCommand(command, false, value || null); }
 
+/* ==================== BUAT SOAL PAJ ==================== */
 function renderCreate(c){
-    c.innerHTML='<div class="fade-in max-w-4xl mx-auto"><div class="card"><h3 class="font-display text-lg font-bold text-light mb-4"><i class="fas fa-plus-circle mr-2 text-danger"></i>Buat Soal PAJ</h3><div class="grid md:grid-cols-2 gap-4 mb-4"><div><label class="text-xs text-muted mb-1 block">Mapel</label><select id="cMapel" class="input-field" onchange="updateCreateTPDropdown()">'+makeMapelOpt('')+'</select></div><div><label class="text-xs text-muted mb-1 block">Kelas</label><select id="cKelas" class="input-field" disabled><option value="Kelas 6" selected>Kelas 6</option></select></div></div><div class="grid md:grid-cols-3 gap-4 mb-4"><div><label class="text-xs text-muted mb-1 block">Tipe Soal</label><select id="cType" class="input-field" onchange="toggleOptions()"><option value="pg">Pilihan Ganda</option><option value="urutan">Menjodohkan / Urutan</option><option value="uraian">Uraian</option></select></div><div><label class="text-xs text-muted mb-1 block">Difficulty</label><select id="cDiff" class="input-field"><option>Mudah</option><option selected>Sedang</option><option>Sulit</option></select></div><div><label class="text-xs text-muted mb-1 block">Skor</label><input type="number" id="cScore" class="input-field" value="1" min="1"></div></div><div class="mb-4"><label class="text-xs text-muted mb-1 block">TP</label><select id="cTPSelect" class="input-field mb-2"><option value="">-- Pilih TP --</option></select><textarea id="cTPManual" class="input-field" rows="2" placeholder="Atau tulis manual..."></textarea></div><div class="mb-4"><label class="text-xs text-muted mb-1 block">Indikator</label><textarea id="cIndicator" class="input-field" rows="2"></textarea></div><div class="mb-4"><label class="text-xs text-muted mb-1 block">Teks Soal / Pertanyaan</label>'+buildWysiwyg('cText')+'<div class="flex gap-2 items-start mt-2"><input type="text" id="cImgUrl" class="input-field text-xs flex-1" placeholder="URL Gambar Soal"><button onclick="document.getElementById(\'cImgFile\').click()" class="btn-secondary text-xs py-2.5 px-3"><i class="fas fa-cloud-upload-alt mr-1"></i>Upload</button><input type="file" id="cImgFile" accept="image/*" class="hidden" onchange="handleImageUpload(this,\'cImgUrl\',\'cImgPrev\')"></div><div id="cImgPrev" class="mt-2"></div></div><div id="optionsArea" class="mb-4"></div><div class="mb-4"><label class="text-xs text-muted mb-1 block">Kunci Jawaban</label><div class="flex gap-2"><select id="cAnswerSelect" class="input-field" style="width:90px" onchange="document.getElementById(\'cAnswer\').value=this.value"><option value="">--</option></select><input type="text" id="cAnswer" class="input-field" placeholder="A/B/C/D atau 1-2-3-4"></div></div><button onclick="saveQuestion()" id="btnSave" class="btn-primary w-full"><i class="fas fa-save mr-2"></i>Simpan ke DB PAJ</button></div></div>';
-    onCreateTypeChange();updateCreateTPDropdown();
+    c.innerHTML='<div class="fade-in max-w-4xl mx-auto"><div class="card"><h3 class="font-display text-lg font-bold text-light mb-4"><i class="fas fa-plus-circle mr-2 text-danger"></i>Buat Soal PAJ</h3><div class="grid md:grid-cols-2 gap-4 mb-4"><div><label class="text-xs text-muted mb-1 block">Mapel</label><select id="cMapel" class="input-field" onchange="updateCreateTPDropdown()">'+makeMapelOptEdit('')+'</select></div><div><label class="text-xs text-muted mb-1 block">Kelas</label><select id="cKelas" class="input-field" disabled><option value="Kelas 6" selected>Kelas 6</option></select></div></div><div class="grid md:grid-cols-3 gap-4 mb-4"><div><label class="text-xs text-muted mb-1 block">Tipe Soal</label><select id="cType" class="input-field" onchange="toggleCreateOptions()"><option value="pg">Pilihan Ganda</option><option value="urutan">Menjodohkan / Urutan</option><option value="uraian">Uraian</option></select></div><div><label class="text-xs text-muted mb-1 block">Difficulty</label><select id="cDiff" class="input-field"><option>Mudah</option><option selected>Sedang</option><option>Sulit</option></select></div><div><label class="text-xs text-muted mb-1 block">Skor</label><input type="number" id="cScore" class="input-field" value="1" min="1"></div></div><div class="mb-4"><label class="text-xs text-muted mb-1 block">TP</label><select id="cTPSelect" class="input-field mb-2"><option value="">-- Pilih TP --</option></select><textarea id="cTPManual" class="input-field" rows="2" placeholder="Atau tulis manual..."></textarea></div><div class="mb-4"><label class="text-xs text-muted mb-1 block">Indikator</label><textarea id="cIndicator" class="input-field" rows="2"></textarea></div><div class="mb-4"><label class="text-xs text-muted mb-1 block">Teks Soal / Pertanyaan</label>'+buildWysiwyg('cText')+'<div class="flex gap-2 items-start mt-2"><input type="text" id="cImgUrl" class="input-field text-xs flex-1" placeholder="URL Gambar Soal"><button onclick="document.getElementById(\'cImgFile\').click()" class="btn-secondary text-xs py-2.5 px-3"><i class="fas fa-cloud-upload-alt mr-1"></i>Upload</button><input type="file" id="cImgFile" accept="image/*" class="hidden" onchange="handleImageUpload(this,\'cImgUrl\',\'cImgPrev\')"></div><div id="cImgPrev" class="mt-2"></div></div><div id="optionsArea" class="mb-4"></div><div class="mb-4"><label class="text-xs text-muted mb-1 block">Kunci Jawaban</label><div class="flex gap-2"><select id="cAnswerSelect" class="input-field" style="width:90px" onchange="document.getElementById(\'cAnswer\').value=this.value"><option value="">--</option></select><input type="text" id="cAnswer" class="input-field" placeholder="A/B/C/D atau 1-2-3-4"></div></div><button onclick="saveQuestion()" id="btnSave" class="btn-primary w-full"><i class="fas fa-save mr-2"></i>Simpan ke DB PAJ</button></div></div>';
+    toggleCreateOptions();updateCreateTPDropdown();
 }
 
-function onCreateTypeChange(){
+function buildOptionsAreaHtml(type,prefix){
+    if(type==='uraian') return '';
+    if(type==='urutan'){
+        var h='<label class="text-xs text-muted mb-2 block text-info font-bold"><i class="fas fa-sort-amount-down mr-1"></i>Pernyataan Acak</label>';
+        for(var i=1;i<=6;i++){
+            h+='<div class="p-3 mb-3 bg-dark/20 border border-info/30 rounded-lg"><div class="flex gap-2 items-center mb-2"><span class="font-bold text-info w-6 text-center">'+i+'.</span><div class="flex-1">'+buildWysiwyg(prefix+'Urt'+i)+'</div></div></div>';
+        }
+        return h;
+    }
+    // PG
+    var l=getOptLetters();
+    var h='<label class="text-xs text-muted mb-2 block">Opsi Jawaban</label>';
+    l.forEach(function(L){
+        h+='<div class="p-3 mb-3 bg-dark/20 border border-border rounded-lg"><div class="flex gap-2 items-center mb-2"><span class="font-bold text-danger w-6 text-center">'+L+'</span><div class="flex-1">'+buildWysiwyg(prefix+'Opt'+L)+'</div></div><div class="flex gap-2 items-center"><input type="text" id="'+prefix+'OptImgUrl'+L+'" class="input-field text-xs flex-1" placeholder="URL Gambar Opsi '+L+'"><button onclick="document.getElementById(\''+prefix+'OptImgFile'+L+'\').click()" class="btn-secondary text-xs py-1.5 px-2 flex-shrink-0"><i class="fas fa-image"></i></button><input type="file" id="'+prefix+'OptImgFile'+L+'" accept="image/*" class="hidden" onchange="handleImageUpload(this,\''+prefix+'OptImgUrl'+L+'\',\''+prefix+'OptImgPrev'+L+'\')"></div><div id="'+prefix+'OptImgPrev'+L+'" class="mt-1"></div></div>';
+    });
+    return h;
+}
+
+function toggleCreateOptions(){
     var t=document.getElementById('cType').value;
     var a=document.getElementById('optionsArea');
-    if(t==='uraian'){a.innerHTML=''; return;}
-    
-    if(t==='urutan'){
-        var h='<label class="text-xs text-muted mb-2 block text-info font-bold"><i class="fas fa-sort-amount-down mr-1"></i>Pernyataan Acak (Isi sesuai urutan apapun, nanti dicetak otomatis dengan kotak nomor)</label>';
-        for(var i=1; i<=6; i++){
-            h+='<div class="p-3 mb-3 bg-dark/20 border border-info/30 rounded-lg">'+
-                '<div class="flex gap-2 items-center mb-2">'+
-                    '<span class="font-bold text-info w-6 text-center">'+i+'.</span>'+
-                    '<div class="flex-1">'+buildWysiwyg('cUrt'+i)+'</div>'+
-                '</div>'+
-            '</div>';
-        }
-        a.innerHTML=h;
-        document.getElementById('cAnswerSelect').innerHTML='<option value="">-- Pilih --</option><option value="urutan">Format: 2-1-4-3</option>'; // [FIX] tag option
-    } 
-    else { // PG
-        var l=getOptLetters();
-        var h='<label class="text-xs text-muted mb-2 block">Opsi Jawaban</label>';
-        l.forEach(function(L){
-            h+='<div class="p-3 mb-3 bg-dark/20 border border-border rounded-lg">'+
-                '<div class="flex gap-2 items-center mb-2">'+
-                    '<span class="font-bold text-danger w-6 text-center">'+L+'</span>'+
-                    '<div class="flex-1">'+buildWysiwyg('cOpt'+L)+'</div>'+
-                '</div>'+
-                '<div class="flex gap-2 items-center">'+
-                    '<input type="text" id="cOptImgUrl'+L+'" class="input-field text-xs flex-1" placeholder="URL Gambar Opsi '+L+'">'+
-                    '<button onclick="document.getElementById(\'cOptImgFile'+L+'\').click()" class="btn-secondary text-xs py-1.5 px-2 flex-shrink-0"><i class="fas fa-image"></i></button>'+
-                    '<input type="file" id="cOptImgFile'+L+'" accept="image/*" class="hidden" onchange="handleImageUpload(this,\'cOptImgUrl'+L+'\',\'cOptImgPrev'+L+'\')">'+
-                '</div>'+
-                '<div id="cOptImgPrev'+L+'" class="mt-1"></div>'+
-            '</div>';
-        });
-        a.innerHTML=h;
-        document.getElementById('cAnswerSelect').innerHTML='<option value="">--</option>'+l.map(function(L){return'<option value="'+L+'">'+L+'</option>';}).join('');
-    }
+    a.innerHTML=buildOptionsAreaHtml(t,'c');
+    var as=document.getElementById('cAnswerSelect');
+    if(t==='uraian'){as.innerHTML='<option value="">-- Uraian --</option>';}
+    else if(t==='urutan'){as.innerHTML='<option value="">-- Pilih --</option><option value="urutan">Format: 2-1-4-3</option>';}
+    else{var l=getOptLetters();as.innerHTML='<option value="">--</option>'+l.map(function(L){return'<option value="'+L+'">'+L+'</option>';}).join('');}
 }
-function toggleOptions(){onCreateTypeChange();}
+
 function handleImageUpload(input,tid,pid){var f=input.files[0];if(!f)return;var ti=document.getElementById(tid),pc=document.getElementById(pid);if(!ti||!pc)return;pc.innerHTML='<span class="text-xs text-danger"><i class="fas fa-spinner fa-spin mr-1"></i>Upload...</span>';storagePAJ.ref('soal/'+Date.now()+'_'+f.name).put(f).then(function(s){return s.ref.getDownloadURL();}).then(function(u){ti.value=u;pc.innerHTML='<img src="'+u+'" class="img-preview">';showToast('Gambar diupload');}).catch(function(){pc.innerHTML='';showToast('Gagal upload','error');});}
 
 function saveQuestion(){
@@ -339,60 +330,175 @@ function saveQuestion(){
     var m=document.getElementById('cMapel').value,tx=document.getElementById('cText').innerHTML.trim();
     if(!tx||tx==='<br>'){showToast('Soal kosong','error');btn.disabled=false;btn.innerHTML='<i class="fas fa-save mr-2"></i>Simpan ke DB PAJ';return;}
     var ansKey=document.getElementById('cAnswer').value.trim().toUpperCase();
-    var typeQ = document.getElementById('cType').value;
+    var typeQ=document.getElementById('cType').value;
     var d={kecamatanId:currentUser.kecId,mapel:m,kelas:'Kelas 6',type:typeQ,text:tx,tp:(document.getElementById('cTPManual').value||document.getElementById('cTPSelect').value||'').trim(),indicator:(document.getElementById('cIndicator').value||'').trim(),difficulty:document.getElementById('cDiff').value,score:parseInt(document.getElementById('cScore').value)||1,answer:ansKey,correctKey:ansKey,image:(document.getElementById('cImgUrl').value||'').trim(),createdAt:firebase.firestore.FieldValue.serverTimestamp()};
-    
-    if(typeQ==='pg'){
-        getOptLetters().forEach(function(L){d['opt'+L]=document.getElementById('cOpt'+L)?document.getElementById('cOpt'+L).innerHTML.trim():'';d['optImg'+L]=(document.getElementById('cOptImgUrl'+L)?document.getElementById('cOptImgUrl'+L).value:'').trim();});
-    } else if(typeQ==='urutan'){
-        d.statements=[];
-        for(var i=1; i<=6; i++){var el=document.getElementById('cUrt'+i);if(el && el.innerHTML.trim() && el.innerHTML.trim()!=='<br>')d.statements.push(el.innerHTML.trim());}
-    }
-    
+    if(typeQ==='pg'){getOptLetters().forEach(function(L){d['opt'+L]=document.getElementById('cOpt'+L)?document.getElementById('cOpt'+L).innerHTML.trim():'';d['optImg'+L]=(document.getElementById('cOptImgUrl'+L)?document.getElementById('cOptImgUrl'+L).value:'').trim();});}
+    else if(typeQ==='urutan'){d.statements=[];for(var i=1;i<=6;i++){var el=document.getElementById('cUrt'+i);if(el&&el.innerHTML.trim()&&el.innerHTML.trim()!=='<br>')d.statements.push(el.innerHTML.trim());}}
     dbPAJ.collection('questions_paj').add(d).then(function(){showToast('Soal PAJ disimpan!');document.getElementById('cText').innerHTML='';document.getElementById('cImgUrl').value='';document.getElementById('cImgPrev').innerHTML='';document.getElementById('cAnswer').value='';document.getElementById('cIndicator').value='';}).catch(function(e){showToast('Gagal: '+e.message,'error');}).finally(function(){btn.disabled=false;btn.innerHTML='<i class="fas fa-save mr-2"></i>Simpan ke DB PAJ';});
 }
 
 /* ==================== BANK SOAL PAJ ==================== */
 function renderQuestions(c){c.innerHTML='<div class="fade-in card"><h3 class="font-display text-lg font-bold text-light mb-4"><i class="fas fa-list mr-2 text-danger"></i>Bank Soal PAJ</h3><div class="filter-bar"><select id="sfMapelQ" class="input-field flex-1" onchange="renderBankFiltered()">'+makeMapelOpt('')+'</select></div><div id="bankList" class="space-y-2 max-h-[70vh] overflow-y-auto pr-2"></div></div>';renderBankFiltered();}
-function renderBankFiltered(){var ct=document.getElementById('bankList');if(!ct)return;var list=getQuestions();var mapelEl=document.getElementById('sfMapelQ');if(mapelEl&&mapelEl.value)list=list.filter(function(q){return q.mapel===mapelEl.value;});if(!list.length){ct.innerHTML='<p class="text-center text-muted py-10">Tidak ada soal</p>';return;}ct.innerHTML=list.map(function(q){var tc=q.type==='uraian'?'border-info':q.type==='urutan'?'border-info':'border-danger';var tb=q.type==='uraian'?'bg-info/20 text-info':q.type==='urutan'?'bg-info/20 text-info':'bg-danger/20 text-danger';var lb=q.type==='uraian'?'URAIAN':q.type==='urutan'?'URUTAN':'PG';return '<div class="p-3 bg-dark/30 rounded-lg flex justify-between items-start border-l-4 '+tc+' hover:bg-dark/50 transition-colors"><div class="flex-1 pr-4 min-w-0"><div class="flex gap-2 mb-1 flex-wrap"><span class="text-xs px-2 py-0.5 rounded '+tb+' font-semibold">'+lb+'</span><span class="text-xs text-muted">'+getMapelSingkat(q.mapel)+'</span></div><div class="text-sm truncate">'+q.text+'</div></div><div class="flex gap-1 flex-shrink-0"><button onclick="editQuestion(\''+q.id+'\')" class="text-info/60 hover:text-info p-1"><i class="fas fa-pen text-xs"></i></button><button onclick="deleteQuestion(\''+q.id+'\')" class="text-danger/60 hover:text-danger p-1"><i class="fas fa-trash text-xs"></i></button></div></div>';}).join('');}
+function renderBankFiltered(){var ct=document.getElementById('bankList');if(!ct)return;var list=getQuestions();var mapelEl=document.getElementById('sfMapelQ');if(mapelEl&&mapelEl.value)list=list.filter(function(q){return q.mapel===mapelEl.value;});if(!list.length){ct.innerHTML='<p class="text-center text-muted py-10">Tidak ada soal</p>';return;}ct.innerHTML=list.map(function(q){var tc=q.type==='uraian'?'border-info':q.type==='urutan'?'border-info':'border-danger';var tb=q.type==='uraian'?'bg-info/20 text-info':q.type==='urutan'?'bg-info/20 text-info':'bg-danger/20 text-danger';var lb=q.type==='uraian'?'URAIAN':q.type==='urutan'?'URUTAN':'PG';return '<div class="p-3 bg-dark/30 rounded-lg flex justify-between items-start border-l-4 '+tc+' hover:bg-dark/50 transition-colors"><div class="flex-1 pr-4 min-w-0"><div class="flex gap-2 mb-1 flex-wrap"><span class="text-xs px-2 py-0.5 rounded '+tb+' font-semibold">'+lb+'</span><span class="text-xs text-muted">'+getMapelSingkat(q.mapel)+'</span><span class="text-xs text-muted">'+escHtml(q.difficulty||'')+'</span></div><div class="text-sm truncate">'+q.text+'</div></div><div class="flex gap-1 flex-shrink-0"><button onclick="editQuestion(\''+q.id+'\')" class="text-info/60 hover:text-info p-1"><i class="fas fa-pen text-xs"></i></button><button onclick="deleteQuestion(\''+q.id+'\')" class="text-danger/60 hover:text-danger p-1"><i class="fas fa-trash text-xs"></i></button></div></div>';}).join('');}
 
+/* ==================== EDIT SOAL LENGKAP ==================== */
 function editQuestion(id){
     var q=pajQuestionsAll.find(function(x){return x.id===id});if(!q)return;
-    var opt='';
-    if(q.type==='pg'){
-        opt='<div class="mt-3 pt-3 border-t border-border"><label class="text-xs text-muted mb-2 block">Opsi Jawaban</label>';
+
+    // Bangun HTML modal edit lengkap seperti halaman Buat Soal
+    var html='<h3 class="font-display text-lg font-bold text-light mb-4"><i class="fas fa-pen mr-2 text-info"></i>Edit Soal PAJ</h3>';
+    html+='<div class="space-y-4">';
+
+    // Baris 1: Mapel & Kelas
+    html+='<div class="grid md:grid-cols-2 gap-4">';
+    html+='<div><label class="text-xs text-muted mb-1 block">Mapel</label><select id="eMapel" class="input-field" onchange="updateEditTPDropdown()">'+makeMapelOptEdit(q.mapel)+'</select></div>';
+    html+='<div><label class="text-xs text-muted mb-1 block">Kelas</label><select id="eKelas" class="input-field" disabled><option value="Kelas 6" selected>Kelas 6</option></select></div>';
+    html+='</div>';
+
+    // Baris 2: Tipe, Difficulty, Skor
+    html+='<div class="grid md:grid-cols-3 gap-4">';
+    html+='<div><label class="text-xs text-muted mb-1 block">Tipe Soal</label><select id="eType" class="input-field" onchange="toggleEditOptions(\''+id+'\')"><option value="pg"'+(q.type==='pg'?' selected':'')+'>Pilihan Ganda</option><option value="urutan"'+(q.type==='urutan'?' selected':'')+'>Menjodohkan / Urutan</option><option value="uraian"'+(q.type==='uraian'?' selected':'')+'>Uraian</option></select></div>';
+    html+='<div><label class="text-xs text-muted mb-1 block">Difficulty</label><select id="eDiff" class="input-field"><option'+(q.difficulty==='Mudah'?' selected':'')+'>Mudah</option><option'+(q.difficulty==='Sedang'?' selected':'')+'>Sedang</option><option'+(q.difficulty==='Sulit'?' selected':'')+'>Sulit</option></select></div>';
+    html+='<div><label class="text-xs text-muted mb-1 block">Skor</label><input type="number" id="eScore" class="input-field" value="'+(q.score||1)+'" min="1"></div>';
+    html+='</div>';
+
+    // TP Dropdown + Manual
+    html+='<div><label class="text-xs text-muted mb-1 block">TP</label><select id="eTPSelect" class="input-field mb-2" data-current="'+escAttr(q.tp||'')+'"><option value="">-- Pilih TP --</option></select><textarea id="eTPManual" class="input-field" rows="2" placeholder="Atau tulis manual...">'+escHtml(q.tp||'')+'</textarea></div>';
+
+    // Indikator
+    html+='<div><label class="text-xs text-muted mb-1 block">Indikator</label><textarea id="eIndicator" class="input-field" rows="2">'+escHtml(q.indicator||'')+'</textarea></div>';
+
+    // Teks Soal
+    html+='<div><label class="text-xs text-muted mb-1 block">Teks Soal / Pertanyaan</label>'+buildWysiwyg('eText')+'</div>';
+
+    // Gambar Soal
+    html+='<div><label class="text-xs text-muted mb-1 block">Gambar Soal (URL)</label><div class="flex gap-2 items-center"><input type="text" id="eImgUrl" class="input-field text-xs flex-1" value="'+escAttr(q.image||'')+'"><button onclick="document.getElementById(\'eImgFile\').click()" class="btn-secondary text-xs py-2.5 px-3 flex-shrink-0"><i class="fas fa-cloud-upload-alt mr-1"></i>Upload</button><input type="file" id="eImgFile" accept="image/*" class="hidden" onchange="handleImageUpload(this,\'eImgUrl\',\'eImgPrev\')"></div><div id="eImgPrev" class="mt-2">'+(q.image?'<img src="'+q.image+'" class="img-preview">':'')+'</div></div>';
+
+    // Area Opsi (akan diisi oleh toggleEditOptions)
+    html+='<div id="eOptionsArea"></div>';
+
+    // Kunci Jawaban
+    html+='<div><label class="text-xs text-muted mb-1 block">Kunci Jawaban</label><div class="flex gap-2"><select id="eAnswerSelect" class="input-field" style="width:120px" onchange="document.getElementById(\'eAnswer\').value=this.value"><option value="">--</option></select><input type="text" id="eAnswer" class="input-field" value="'+escAttr(q.answer||q.correctKey||'')+'" placeholder="A/B/C/D atau 1-2-3-4"></div></div>';
+
+    // Tombol
+    html+='<div class="flex justify-end gap-3 pt-4 mt-4 border-t border-border"><button onclick="closeModal()" class="btn-secondary">Batal</button><button onclick="doUpdateQuestion(\''+id+'\')" class="btn-primary"><i class="fas fa-save mr-2"></i>Simpan Perubahan</button></div>';
+    html+='</div>';
+
+    openModal(html);
+
+    // Isi data setelah modal dirender
+    setTimeout(function(){
+        document.getElementById('eText').innerHTML=q.text||'';
+
+        // Isi dropdown TP
+        updateEditTPDropdown();
+
+        // Set dropdown TP jika ada nilai
+        var tpSel=document.getElementById('eTPSelect');
+        if(tpSel && q.tp){
+            // Cek apakah nilai TP ada di dropdown
+            var found=false;
+            for(var i=0;i<tpSel.options.length;i++){if(tpSel.options[i].value===q.tp){found=true;break;}}
+            if(found){tpSel.value=q.tp;document.getElementById('eTPManual').value='';}
+            else{tpSel.value='';document.getElementById('eTPManual').value=q.tp;}
+        }
+
+        // Bangun area opsi berdasarkan tipe
+        buildEditOptions(q);
+
+        // Bangun dropdown kunci jawaban
+        buildEditAnswerSelect(q);
+    },150);
+}
+
+function buildEditOptions(q){
+    var area=document.getElementById('eOptionsArea');
+    if(!area)return;
+    var type=document.getElementById('eType').value;
+    area.innerHTML=buildOptionsAreaHtml(type,'e');
+
+    // Isi data opsi yang ada
+    if(type==='pg'){
         getOptLetters().forEach(function(L){
             var valOpt=q['opt'+L]||(q.options&&q.options[['A','B','C','D'].indexOf(L)])||'';
             var valImg=q['optImg'+L]||(q.optionImages&&q.optionImages[['A','B','C','D'].indexOf(L)])||'';
-            opt+='<div class="p-3 mb-3 bg-dark/20 border border-border rounded-lg"><div class="flex gap-2 items-center mb-2"><span class="font-bold text-danger w-6 text-center">'+L+'</span><div class="flex-1">'+buildWysiwyg('eOptVal'+L)+'</div></div><div class="flex gap-2 items-center"><input type="text" id="eOptImgUrl'+L+'" class="input-field text-xs flex-1" value="'+escAttr(valImg)+'" placeholder="URL Gambar Opsi"><button onclick="document.getElementById(\'eOptImgFile'+L+'\').click()" class="btn-secondary text-xs py-1.5 px-2 flex-shrink-0"><i class="fas fa-image"></i></button><input type="file" id="eOptImgFile'+L+'" accept="image/*" class="hidden" onchange="handleImageUpload(this,\'eOptImgUrl'+L+'\',\'eOptImgPrev'+L+'\')"></div><div id="eOptImgPrev'+L+'" class="mt-1">'+(valImg?'<img src="'+valImg+'" class="img-preview">':'')+'</div></div>';
+            var el=document.getElementById('eOpt'+L);
+            if(el)el.innerHTML=valOpt;
+            var imgEl=document.getElementById('eOptImgUrl'+L);
+            if(imgEl)imgEl.value=valImg;
+            var prevEl=document.getElementById('eOptImgPrev'+L);
+            if(prevEl&&valImg)prevEl.innerHTML='<img src="'+valImg+'" class="img-preview">';
         });
-        opt+='</div>';
-    } else if(q.type==='urutan'){
-        opt='<div class="mt-3 pt-3 border-t border-border"><label class="text-xs text-muted mb-2 block text-info font-bold">Pernyataan Acak</label>';
-        var stmts = q.statements || [];
-        for(var i=1; i<=6; i++){
-            opt+='<div class="p-3 mb-3 bg-dark/20 border border-info/30 rounded-lg"><div class="flex gap-2 items-center mb-2"><span class="font-bold text-info w-6 text-center">'+i+'.</span><div class="flex-1">'+buildWysiwyg('eUrt'+i)+'</div></div></div>';
+    } else if(type==='urutan'){
+        var stmts=q.statements||[];
+        for(var i=1;i<=6;i++){
+            var el=document.getElementById('eUrt'+i);
+            if(el)el.innerHTML=stmts[i-1]||'';
         }
-        opt+='</div>';
     }
-    
-    openModal('<h3 class="font-display text-lg font-bold text-light mb-4">Edit Soal PAJ</h3><div class="space-y-3"><div><label class="text-xs text-muted mb-1 block">Teks Soal</label>'+buildWysiwyg('eText')+'</div><div><label class="text-xs text-muted mb-1 block">Gambar Soal (URL)</label><input type="text" id="eImg" class="input-field" value="'+escAttr(q.image||'')+'"></div>'+opt+'<div class="grid grid-cols-2 gap-4"><div><label class="text-xs text-muted mb-1 block">Kunci</label><input type="text" id="eAnswer" class="input-field" value="'+escAttr(q.answer||q.correctKey||'')+'"></div><div><label class="text-xs text-muted mb-1 block">Skor</label><input type="number" id="eScore" class="input-field" value="'+(q.score||1)+'" min="1"></div></div></div><div class="flex justify-end gap-3 pt-4 mt-4 border-t border-border"><button onclick="closeModal()" class="btn-secondary">Batal</button><button onclick="doUpdateQuestion(\''+id+'\')" class="btn-primary">Simpan</button></div>');
-    
-    setTimeout(function() {
-        document.getElementById('eText').innerHTML = q.text || '';
-        if(q.type==='pg'){
-            getOptLetters().forEach(function(L){var valOpt=q['opt'+L]||(q.options&&q.options[['A','B','C','D'].indexOf(L)])||'';var el=document.getElementById('eOptVal'+L);if(el)el.innerHTML=valOpt;});
-        } else if(q.type==='urutan'){
-            var stmts = q.statements || [];
-            for(var i=1; i<=6; i++){var el=document.getElementById('eUrt'+i);if(el)el.innerHTML=stmts[i-1]||'';}
-        }
-    }, 100);
 }
 
-function doUpdateQuestion(id){var ansKey=document.getElementById('eAnswer').value.trim().toUpperCase();var q=pajQuestionsAll.find(function(x){return x.id===id});var d={tp:document.getElementById('eTP')?document.getElementById('eTP').value:'',indicator:document.getElementById('eIndicator')?document.getElementById('eIndicator').value:'',text:document.getElementById('eText').innerHTML,image:document.getElementById('eImg').value,answer:ansKey,correctKey:ansKey,score:parseInt(document.getElementById('eScore').value)||1};if(q.type==='pg'){getOptLetters().forEach(function(L){d['opt'+L]=document.getElementById('eOptVal'+L)?document.getElementById('eOptVal'+L).innerHTML.trim():'';d['optImg'+L]=document.getElementById('eOptImgUrl'+L)?document.getElementById('eOptImgUrl'+L).value.trim():'';});}else if(q.type==='urutan'){d.statements=[];for(var i=1;i<=6;i++){var el=document.getElementById('eUrt'+i);if(el&&el.innerHTML.trim()&&el.innerHTML.trim()!=='<br>')d.statements.push(el.innerHTML.trim());}}dbPAJ.collection('questions_paj').doc(id).update(d).then(function(){showToast('Diperbarui!');closeModal();}).catch(function(){showToast('Gagal','error');});}
+function buildEditAnswerSelect(q){
+    var type=document.getElementById('eType').value;
+    var as=document.getElementById('eAnswerSelect');
+    var ans=(q.answer||q.correctKey||'').toUpperCase();
+    if(type==='uraian'){as.innerHTML='<option value="">-- Uraian --</option>';}
+    else if(type==='urutan'){as.innerHTML='<option value="">-- Pilih --</option><option value="urutan"'+(ans==='URUTAN'?' selected':'')+'>Format: 2-1-4-3</option>';}
+    else{var l=getOptLetters();as.innerHTML='<option value="">--</option>'+l.map(function(L){return'<option value="'+L+'"'+(ans===L?' selected':'')+'>'+L+'</option>';}).join('');}
+}
+
+function toggleEditOptions(qid){
+    var q=pajQuestionsAll.find(function(x){return x.id===qid});if(!q)return;
+    buildEditOptions(q);
+    buildEditAnswerSelect(q);
+}
+
+function doUpdateQuestion(id){
+    var ansKey=document.getElementById('eAnswer').value.trim().toUpperCase();
+    var typeQ=document.getElementById('eType').value;
+    var mapelVal=document.getElementById('eMapel').value;
+    var tpVal=(document.getElementById('eTPManual').value||document.getElementById('eTPSelect').value||'').trim();
+
+    var d={
+        mapel:mapelVal,
+        type:typeQ,
+        tp:tpVal,
+        indicator:(document.getElementById('eIndicator').value||'').trim(),
+        difficulty:document.getElementById('eDiff').value,
+        score:parseInt(document.getElementById('eScore').value)||1,
+        text:document.getElementById('eText').innerHTML.trim(),
+        image:(document.getElementById('eImgUrl').value||'').trim(),
+        answer:ansKey,
+        correctKey:ansKey
+    };
+
+    // Hapus field lama yang mungkin tidak relevan saat ganti tipe
+    getOptLetters().forEach(function(L){d['opt'+L]='';d['optImg'+L]='';});
+    d.statements=firebase.firestore.FieldValue.delete();
+
+    if(typeQ==='pg'){
+        getOptLetters().forEach(function(L){
+            var el=document.getElementById('eOpt'+L);
+            d['opt'+L]=el?el.innerHTML.trim():'';
+            var imgEl=document.getElementById('eOptImgUrl'+L);
+            d['optImg'+L]=imgEl?imgEl.value.trim():'';
+        });
+    } else if(typeQ==='urutan'){
+        d.statements=[];
+        for(var i=1;i<=6;i++){var el=document.getElementById('eUrt'+i);if(el&&el.innerHTML.trim()&&el.innerHTML.trim()!=='<br>')d.statements.push(el.innerHTML.trim());}
+    }
+
+    dbPAJ.collection('questions_paj').doc(id).update(d).then(function(){
+        showToast('Soal berhasil diperbarui!');
+        closeModal();
+    }).catch(function(e){
+        showToast('Gagal: '+e.message,'error');
+    });
+}
+
 function deleteQuestion(id){if(!confirm('Hapus soal PAJ ini?'))return;dbPAJ.collection('questions_paj').doc(id).delete().then(function(){showToast('Dihapus');}).catch(function(){showToast('Gagal','error');});}
 
-/* ==================== CETAK SOAL (DENGAN URUTAN) ==================== */
+/* ==================== CETAK SOAL ==================== */
 var PRINT_CSS=''
 +'body{font-family:"Times New Roman",serif;font-size:14pt;line-height:1.5;color:#000;background:#fff;margin:0;padding:0}'
 +'.kop-area{display:flex;align-items:center;gap:14px;padding-bottom:10px;border-bottom:3px solid #000;margin-bottom:4px}'
@@ -409,75 +515,42 @@ var PRINT_CSS=''
 +'.opt-img{max-height:40px;max-width:70px;object-fit:contain;vertical-align:middle;margin-left:8px;display:inline-block;border-radius:2px}'
 +'.section-title{border-bottom:2px solid #000;padding-bottom:4px;margin-bottom:12px;font-size:14pt;font-weight:bold}'
 +'.soal-block{margin-bottom:14px;page-break-inside:avoid}'
-+'.ar-sunda-text{font-size:18pt; line-height:1.8;}'
-+'.urut-row{display:flex; align-items:flex-start; margin-bottom:6px;}'
-+'.urut-num-box{border:1.5px solid #000; width:24px; height:24px; min-width:24px; display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:11pt; margin-right:8px; border-radius:2px;}'
-+'.urut-text{flex:1; font-size:14pt; line-height:1.5; padding-top:1px;}'
-+'/* Paksa Font Seragam di Dalam Soal */'
-+'.soal-block, .soal-block div, .soal-block span, .soal-block p { font-family: "Times New Roman", serif !important; font-size: 14pt !important; line-height: 1.5 !important; }'
++'.ar-sunda-text{font-size:18pt;line-height:1.8}'
++'.urut-row{display:flex;align-items:flex-start;margin-bottom:6px}'
++'.urut-num-box{border:1.5px solid #000;width:24px;height:24px;min-width:24px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:11pt;margin-right:8px;border-radius:2px}'
++'.urut-text{flex:1;font-size:14pt;line-height:1.5;padding-top:1px}'
++'.soal-block,.soal-block div,.soal-block span,.soal-block p{font-family:"Times New Roman",serif!important;font-size:14pt!important;line-height:1.5!important}'
 +'@media print{@page{margin:2cm}}';
 
 function buildKopHtml(kecNama){return '<div class="kop-area"><img src="'+KOP_LOGO_URL+'" class="kop-logo" alt="Logo"><div class="kop-text"><h1>PEMERINTAH KABUPATEN MAJALENGKA</h1><h2>DINAS PENDIDIKAN</h2><h3>DAAI SCORE - KOREK API</h3></div></div><div class="kop-sub">Penilaian Akhir Jenjang (PAJ) Tahun Pelajaran 2025/2026</div>';}
 function buildPetunjukHtml(hasPg,hasUr){var h='<div class="petunjuk"><p><b>Petunjuk Umum:</b></p><ol>';if(hasPg)h+='<li>Pilihan Ganda: Pilihlah satu jawaban paling tepat.</li>';if(hasUr)h+='<li>Uraian: Jawablah dengan jelas dan tepat.</li>';h+='</ol></div>';return h;}
-function processSpecialLang(htmlString, mapelId) {if(mapelId==='pai'){return htmlString.replace(/([\u0600-\u06FF]+)/g, '<span class="ar-sunda-text">$1</span>');}if(mapelId==='bsd'){return htmlString.replace(/([\u1B80-\u1BBF]+)/g, '<span class="ar-sunda-text">$1</span>');}return htmlString;}
+function processSpecialLang(htmlString,mapelId){if(mapelId==='pai'){return htmlString.replace(/([\u0600-\u06FF]+)/g,'<span class="ar-sunda-text">$1</span>');}if(mapelId==='bsd'){return htmlString.replace(/([\u1B80-\u1BBF]+)/g,'<span class="ar-sunda-text">$1</span>');}return htmlString;}
 
-function renderPrint(c){if(currentUser.isSuper){c.innerHTML='<div class="fade-in card text-center py-16"><i class="fas fa-info-circle text-4xl mb-4 block text-purple"></i><h3 class="text-purple font-display text-lg font-bold mb-2">Pilih Kecamatan</h3></div>';return;}c.innerHTML='<div class="fade-in no-print"><div class="card mb-6"><h3 class="font-display text-lg font-bold text-light mb-4"><i class="fas fa-print mr-2 text-danger"></i>Cetak Soal PAJ — '+escHtml(currentUser.kecNama)+'</h3><div class="flex flex-wrap gap-4 items-end"><div class="w-44"><select id="pMapelPrint" class="input-field" onchange="refreshPrintPreview()">'+makeMapelOpt('')+'</select></div><button onclick="doPrintSoal()" class="btn-primary"><i class="fas fa-print mr-2"></i>Cetak</button></div></div><div id="printPreviewContainer"></div></div>';setTimeout(refreshPrintPreview,100);}
+function renderPrint(c){if(currentUser.isSuper){c.innerHTML='<div class="fade-in card text-center py-16"><i class="fas fa-info-circle text-4xl mb-4 block text-purple"></i><h3 class="text-purple font-display text-lg font-bold mb-2">Pilih Kecamatan</h3></div>';return;}c.innerHTML='<div class="fade-in no-print"><div class="card mb-6"><h3 class="font-display text-lg font-bold text-light mb-4"><i class="fas fa-print mr-2 text-danger"></i>Cetak Soal PAJ — '+escHtml(currentUser.kecNama)+'</h3><div class="flex flex-wrap gap-4 items-end"><div class="w-44"><select id="pMapelPrint" class="input-field" onchange="refreshPrintPreview()">'+makeMapelOptEdit('')+'</select></div><button onclick="doPrintSoal()" class="btn-primary"><i class="fas fa-print mr-2"></i>Cetak</button></div></div><div id="printPreviewContainer"></div></div>';setTimeout(refreshPrintPreview,100);}
 function doPrintSoal(){var s=document.querySelector('.print-preview-sheet');if(!s){showToast('Tidak ada preview','error');return;}var f=document.createElement('iframe');f.style.cssText='position:fixed;left:-9999px;top:0;width:210mm;height:297mm';document.body.appendChild(f);var d=f.contentDocument||f.contentWindow.document;d.open();d.write('<!DOCTYPE html><html><head><style>'+PRINT_CSS+'</style></head><body>');d.write(s.innerHTML);d.write('</body></html>');d.close();setTimeout(function(){f.contentWindow.focus();f.contentWindow.print();setTimeout(function(){document.body.removeChild(f);},3000);},500);}
 
 function refreshPrintPreview(){
     var m=document.getElementById('pMapelPrint'),c=document.getElementById('printPreviewContainer');if(!m)return;var mv=m.value;if(!mv){c.innerHTML='<p class="text-center text-muted py-20">Pilih mapel</p>';return;}
     var data=getQuestions().filter(function(q){return q.mapel===mv;});
     var pg=data.filter(function(q){return q.type==='pg';}),ur=data.filter(function(q){return q.type==='uraian';}),urt=data.filter(function(q){return q.type==='urutan';});
-
     var h='<div class="bg-gray-400 p-4 md:p-8 rounded-lg flex justify-center overflow-x-auto"><div class="print-preview-sheet bg-white text-black shadow-2xl rounded-lg" style="width:210mm;min-height:297mm;padding:2cm">';
-    h+=buildKopHtml(currentUser.kecNama);h+=buildPetunjukHtml(pg.length>0 || urt.length>0,ur.length>0);
-
-    var num = 1; // Nomor soak global berurutan
-
-    if(pg.length || urt.length){
+    h+=buildKopHtml(currentUser.kecNama);h+=buildPetunjukHtml(pg.length>0||urt.length>0,ur.length>0);
+    var num=1;
+    if(pg.length||urt.length){
         h+='<div class="section-title">I. Pilihan Ganda / Menjodohkan</div>';
-        
-        pg.forEach(function(q){
-            var qText=processSpecialLang(q.text||'',mv);
-            h+='<div class="soal-block"><div style="display:flex; align-items:flex-start; margin-bottom:4px;"><span style="font-weight:bold; min-width:28px;">'+(num++)+'.</span><div style="flex:1;">';if(q.image){h+='<img src="'+q.image+'" class="soal-img">';}h+=qText+'</div></div><div style="margin-left:28px;">';
-            getOptLetters().forEach(function(L){var optTxt=q['opt'+L]||(q.options&&q.options[['A','B','C','D'].indexOf(L)])||'';var optImg=q['optImg'+L]||(q.optionImages&&q.optionImages[['A','B','C','D'].indexOf(L)])||'';if(optTxt||optImg){optTxt=processSpecialLang(optTxt,mv);h+='<div style="display:flex; align-items:flex-start; margin-bottom:2px;"><span style="font-weight:bold; min-width:20px;">'+L+'.</span><div style="flex:1;">'+optTxt;if(optImg){h+=' <img src="'+optImg+'" class="opt-img">';}h+='</div></div>';}});
-            h+='</div></div>';
-        });
-
-        urt.forEach(function(q){
-            var qText=processSpecialLang(q.text||'',mv);
-            h+='<div class="soal-block"><div style="display:flex; align-items:flex-start; margin-bottom:4px;"><span style="font-weight:bold; min-width:28px;">'+(num++)+'.</span><div style="flex:1;">';if(q.image){h+='<img src="'+q.image+'" class="soal-img">';}h+=qText+'</div></div>';
-            
-            // Bagian Pernyataan Acak dengan Kotak Nomor
-            if(q.statements && q.statements.length > 0){
-                h+='<div style="margin-left:28px; margin-top:8px;">';
-                q.statements.forEach(function(stmt, idx){
-                    var stmtText = processSpecialLang(stmt, mv);
-                    h+='<div class="urut-row"><div class="urut-num-box">'+(idx+1)+'</div><div class="urut-text">'+stmtText+'</div></div>';
-                });
-                h+='</div>';
-            }
-            h+='</div>';
-        });
+        pg.forEach(function(q){var qText=processSpecialLang(q.text||'',mv);h+='<div class="soal-block"><div style="display:flex;align-items:flex-start;margin-bottom:4px;"><span style="font-weight:bold;min-width:28px;">'+(num++)+'.</span><div style="flex:1;">';if(q.image){h+='<img src="'+q.image+'" class="soal-img">';}h+=qText+'</div></div><div style="margin-left:28px;">';getOptLetters().forEach(function(L){var optTxt=q['opt'+L]||(q.options&&q.options[['A','B','C','D'].indexOf(L)])||'';var optImg=q['optImg'+L]||(q.optionImages&&q.optionImages[['A','B','C','D'].indexOf(L)])||'';if(optTxt||optImg){optTxt=processSpecialLang(optTxt,mv);h+='<div style="display:flex;align-items:flex-start;margin-bottom:2px;"><span style="font-weight:bold;min-width:20px;">'+L+'.</span><div style="flex:1;">'+optTxt;if(optImg){h+=' <img src="'+optImg+'" class="opt-img">';}h+='</div></div>';}});h+='</div></div>';});
+        urt.forEach(function(q){var qText=processSpecialLang(q.text||'',mv);h+='<div class="soal-block"><div style="display:flex;align-items:flex-start;margin-bottom:4px;"><span style="font-weight:bold;min-width:28px;">'+(num++)+'.</span><div style="flex:1;">';if(q.image){h+='<img src="'+q.image+'" class="soal-img">';}h+=qText+'</div></div>';if(q.statements&&q.statements.length>0){h+='<div style="margin-left:28px;margin-top:8px;">';q.statements.forEach(function(stmt,idx){var stmtText=processSpecialLang(stmt,mv);h+='<div class="urut-row"><div class="urut-num-box">'+(idx+1)+'</div><div class="urut-text">'+stmtText+'</div></div>';});h+='</div>';}h+='</div>';});
     }
-
-    if(ur.length){
-        h+='<div class="section-title" style="margin-top:16px">II. Uraian</div>';
-        ur.forEach(function(q){
-            var qText=processSpecialLang(q.text||'',mv);
-            h+='<div class="soal-block"><div style="display:flex; align-items:flex-start;"><span style="font-weight:bold; min-width:28px;">'+(num++)+'.</span><div style="flex:1;">';if(q.image){h+='<img src="'+q.image+'" class="soal-img">';}h+=qText+'</div></div></div>';
-        });
-    }
-
+    if(ur.length){h+='<div class="section-title" style="margin-top:16px">II. Uraian</div>';ur.forEach(function(q){var qText=processSpecialLang(q.text||'',mv);h+='<div class="soal-block"><div style="display:flex;align-items:flex-start;"><span style="font-weight:bold;min-width:28px;">'+(num++)+'.</span><div style="flex:1;">';if(q.image){h+='<img src="'+q.image+'" class="soal-img">';}h+=qText+'</div></div></div>';});}
     h+='</div></div>';c.innerHTML=h;
 }
 
 /* ==================== KISI-KISI & SKOR ==================== */
-function renderKisi(c){if(currentUser.isSuper){c.innerHTML='<div class="fade-in card text-center py-16"><i class="fas fa-info-circle text-4xl mb-4 block text-purple"></i></div>';return;}c.innerHTML='<div class="fade-in no-print"><div class="card mb-6"><h3 class="font-display text-lg font-bold text-light mb-4"><i class="fas fa-table mr-2 text-danger"></i>Kisi-Kisi PAJ</h3><div class="flex flex-wrap gap-4 items-end"><div class="w-44"><select id="pMapelKisi" class="input-field" onchange="refreshKisi()">'+makeMapelOpt('')+'</select></div></div></div><div id="kisiC" class="bg-white text-black shadow-2xl rounded-lg overflow-hidden"></div></div>';setTimeout(refreshKisi,100);}
-function refreshKisi(){var m=document.getElementById('pMapelKisi').value,c=document.getElementById('kisiC');if(!m){c.innerHTML='<p class="text-center text-gray-400 py-20">Pilih Mapel</p>';return;}var d=getQuestions().filter(function(q){return q.mapel===m;});var h='<div class="p-8"><h2 style="text-align:center;margin-bottom:20px">Kisi-Kisi PAJ - '+getMapelName(m)+'</h2><table style="width:100%;border-collapse:collapse"><thead><tr><th style="border:1px solid #000;padding:8px;background:#f0f0f0">No</th><th style="border:1px solid #000;padding:8px;background:#f0f0f0">TP</th><th style="border:1px solid #000;padding:8px;background:#f0f0f0">Tipe</th></tr></thead><tbody>';d.forEach(function(q,i){h+='<tr><td style="border:1px solid #000;padding:8px;text-align:center">'+(i+1)+'</td><td style="border:1px solid #000;padding:8px">'+escHtml(q.tp||'-')+'</td><td style="border:1px solid #000;padding:8px;text-align:center">'+q.type.toUpperCase()+'</td></tr>';});h+='</tbody></table></div>';c.innerHTML=h;}
+function renderKisi(c){if(currentUser.isSuper){c.innerHTML='<div class="fade-in card text-center py-16"><i class="fas fa-info-circle text-4xl mb-4 block text-purple"></i></div>';return;}c.innerHTML='<div class="fade-in no-print"><div class="card mb-6"><h3 class="font-display text-lg font-bold text-light mb-4"><i class="fas fa-table mr-2 text-danger"></i>Kisi-Kisi PAJ</h3><div class="flex flex-wrap gap-4 items-end"><div class="w-44"><select id="pMapelKisi" class="input-field" onchange="refreshKisi()">'+makeMapelOptEdit('')+'</select></div></div></div><div id="kisiC" class="bg-white text-black shadow-2xl rounded-lg overflow-hidden"></div></div>';setTimeout(refreshKisi,100);}
+function refreshKisi(){var m=document.getElementById('pMapelKisi').value,c=document.getElementById('kisiC');if(!m){c.innerHTML='<p class="text-center text-gray-400 py-20">Pilih Mapel</p>';return;}var d=getQuestions().filter(function(q){return q.mapel===m;});var h='<div class="p-8"><h2 style="text-align:center;margin-bottom:20px">Kisi-Kisi PAJ - '+getMapelName(m)+'</h2><table style="width:100%;border-collapse:collapse"><thead><tr><th style="border:1px solid #000;padding:8px;background:#f0f0f0">No</th><th style="border:1px solid #000;padding:8px;background:#f0f0f0">TP</th><th style="border:1px solid #000;padding:8px;background:#f0f0f0">Indikator</th><th style="border:1px solid #000;padding:8px;background:#f0f0f0">Tipe</th><th style="border:1px solid #000;padding:8px;background:#f0f0f0">Difficulty</th><th style="border:1px solid #000;padding:8px;background:#f0f0f0">Skor</th></tr></thead><tbody>';d.forEach(function(q,i){h+='<tr><td style="border:1px solid #000;padding:8px;text-align:center">'+(i+1)+'</td><td style="border:1px solid #000;padding:8px">'+escHtml(q.tp||'-')+'</td><td style="border:1px solid #000;padding:8px">'+escHtml(q.indicator||'-')+'</td><td style="border:1px solid #000;padding:8px;text-align:center">'+q.type.toUpperCase()+'</td><td style="border:1px solid #000;padding:8px;text-align:center">'+escHtml(q.difficulty||'-')+'</td><td style="border:1px solid #000;padding:8px;text-align:center">'+(q.score||1)+'</td></tr>';});h+='</tbody></table></div>';c.innerHTML=h;}
 
-function renderScoring(c){if(currentUser.isSuper){c.innerHTML='<div class="fade-in card text-center py-16"><i class="fas fa-info-circle text-4xl mb-4 block text-purple"></i></div>';return;}c.innerHTML='<div class="fade-in no-print"><div class="card mb-6"><h3 class="font-display text-lg font-bold text-light mb-4"><i class="fas fa-key mr-2 text-danger"></i>Kunci & Skor PAJ</h3><div class="flex flex-wrap gap-4 items-end"><div class="w-44"><select id="pMapelSc" class="input-field" onchange="refreshScoring()">'+makeMapelOpt('')+'</select></div></div></div><div id="scC" class="bg-white text-black shadow-2xl rounded-lg overflow-hidden"></div></div>';setTimeout(refreshScoring,100);}
-function refreshScoring(){var m=document.getElementById('pMapelSc').value,c=document.getElementById('scC');if(!m){c.innerHTML='<p class="text-center text-gray-400 py-20">Pilih Mapel</p>';return;}var d=getQuestions().filter(function(q){return q.mapel===m;});var h='<div class="p-8"><h2 style="text-align:center;margin-bottom:20px">Kunci Jawaban PAJ - '+getMapelName(m)+'</h2><table style="width:100%;border-collapse:collapse"><thead><tr><th style="border:1px solid #000;padding:8px;background:#f0f0f0">No</th><th style="border:1px solid #000;padding:8px;background:#f0f0f0">Tipe</th><th style="border:1px solid #000;padding:8px;background:#f0f0f0">Kunci</th></tr></thead><tbody>';d.forEach(function(q,i){h+='<tr><td style="border:1px solid #000;padding:8px;text-align:center">'+(i+1)+'</td><td style="border:1px solid #000;padding:8px;text-align:center">'+q.type.toUpperCase()+'</td><td style="border:1px solid #000;padding:8px;text-align:center;font-weight:bold">'+escHtml((q.answer||q.correctKey||'-').toUpperCase())+'</td></tr>';});h+='</tbody></table></div>';c.innerHTML=h;}
+function renderScoring(c){if(currentUser.isSuper){c.innerHTML='<div class="fade-in card text-center py-16"><i class="fas fa-info-circle text-4xl mb-4 block text-purple"></i></div>';return;}c.innerHTML='<div class="fade-in no-print"><div class="card mb-6"><h3 class="font-display text-lg font-bold text-light mb-4"><i class="fas fa-key mr-2 text-danger"></i>Kunci & Skor PAJ</h3><div class="flex flex-wrap gap-4 items-end"><div class="w-44"><select id="pMapelSc" class="input-field" onchange="refreshScoring()">'+makeMapelOptEdit('')+'</select></div></div></div><div id="scC" class="bg-white text-black shadow-2xl rounded-lg overflow-hidden"></div></div>';setTimeout(refreshScoring,100);}
+function refreshScoring(){var m=document.getElementById('pMapelSc').value,c=document.getElementById('scC');if(!m){c.innerHTML='<p class="text-center text-gray-400 py-20">Pilih Mapel</p>';return;}var d=getQuestions().filter(function(q){return q.mapel===m;});var h='<div class="p-8"><h2 style="text-align:center;margin-bottom:20px">Kunci Jawaban PAJ - '+getMapelName(m)+'</h2><table style="width:100%;border-collapse:collapse"><thead><tr><th style="border:1px solid #000;padding:8px;background:#f0f0f0">No</th><th style="border:1px solid #000;padding:8px;background:#f0f0f0">Tipe</th><th style="border:1px solid #000;padding:8px;background:#f0f0f0">Difficulty</th><th style="border:1px solid #000;padding:8px;background:#f0f0f0">Kunci</th><th style="border:1px solid #000;padding:8px;background:#f0f0f0">Skor</th></tr></thead><tbody>';d.forEach(function(q,i){h+='<tr><td style="border:1px solid #000;padding:8px;text-align:center">'+(i+1)+'</td><td style="border:1px solid #000;padding:8px;text-align:center">'+q.type.toUpperCase()+'</td><td style="border:1px solid #000;padding:8px;text-align:center">'+escHtml(q.difficulty||'-')+'</td><td style="border:1px solid #000;padding:8px;text-align:center;font-weight:bold">'+escHtml((q.answer||q.correctKey||'-').toUpperCase())+'</td><td style="border:1px solid #000;padding:8px;text-align:center">'+(q.score||1)+'</td></tr>';});h+='</tbody></table></div>';c.innerHTML=h;}
 
 /* ==================== KELOLA KECAMATAN ==================== */
 function renderManageKec(c){if(!currentUser.isSuper){c.innerHTML='<p class="text-danger">Akses ditolak</p>';return;}var html='<div class="fade-in card"><h3 class="font-display text-lg font-bold text-light mb-4"><i class="fas fa-map-marked-alt mr-2 text-purple"></i>Kelola Kecamatan</h3>';if(!kecamatanList.length){html+='<p class="text-center text-muted py-10">Belum ada</p>';}else{html+='<div class="space-y-3 max-h-[72vh] overflow-y-auto pr-2">';kecamatanList.forEach(function(k){html+='<div class="p-4 bg-dark/30 rounded-lg border-l-4 border-purple hover:bg-dark/50 transition-colors"><div class="flex flex-wrap justify-between items-start gap-3"><div class="flex-1 min-w-0"><h4 class="font-bold text-light">'+escHtml(k.nama)+'</h4><div class="flex flex-wrap gap-3 mt-1 text-xs text-muted"><span><i class="fas fa-user mr-1"></i>'+escHtml(k.pj)+'</span></div></div><div class="flex gap-2 flex-shrink-0"><button onclick="editKecamatan(\''+k.id+'\')" class="btn-secondary text-xs py-1.5 px-3"><i class="fas fa-pen mr-1"></i>Edit</button><button onclick="deleteKecamatan(\''+k.id+'\')" class="btn-danger text-xs py-1.5 px-3"><i class="fas fa-trash mr-1"></i>Hapus</button></div></div>';});html+='</div>';}html+='</div>';c.innerHTML=html;}
